@@ -1,6 +1,8 @@
 package com.lait.swagger_test.service;
 
 import com.lait.swagger_test.dao.repository.TableTestEntityRepository;
+import com.lait.swagger_test.dto.TableTestDto;
+import com.lait.swagger_test.mapper.TableTestEntityMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,11 +10,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TestServiceImpl implements TestService {
 
-    private TableTestEntityRepository tableTestEntityRepository;
-
-    public TestServiceImpl(TableTestEntityRepository tableTestEntityRepository) {
-        this.tableTestEntityRepository = tableTestEntityRepository;
-    }
+    private final TableTestEntityRepository tableTestEntityRepository;
+    private final TableTestEntityMapper tableTestEntityMapper;
 
     @Override
     public String hello() {
@@ -24,4 +23,12 @@ public class TestServiceImpl implements TestService {
         System.out.println(tableTestEntityRepository.count());
         return string + "hello";
     }
+
+    @Override
+    public String save(TableTestDto tableTestDto) {
+        tableTestEntityRepository.save(tableTestEntityMapper.toEntity(tableTestDto));
+        return "success";
+    }
+
+
 }

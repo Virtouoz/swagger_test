@@ -9,7 +9,7 @@ import java.io.Serializable;
  * DTO for {@link com.lait.swagger_test.dao.entity.TableTestEntityPK}
  */
 @Data
-public class TableTestEntityPKDto implements Serializable {
+public class TableTesPKDto implements Serializable {
     @NonNull
     String bic;
     @NonNull

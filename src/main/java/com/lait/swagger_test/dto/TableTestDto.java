@@ -10,8 +10,8 @@ import java.sql.Date;
  * DTO for {@link com.lait.swagger_test.dao.entity.TableTestEntity}
  */
 @Data
-public class TableTestEntityDto implements Serializable {
-    TableTestEntityPKDto id;
+public class TableTestDto implements Serializable {
+    TableTesPKDto id;
     String name;
     BigDecimal money;
     String currency;
